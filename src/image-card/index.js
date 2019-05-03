@@ -1,10 +1,16 @@
 /**
+ * WordPress dependencies
+ */
+const { registerBlockType } = wp.blocks;
+const { __ } = wp.i18n;
+
+/**
  * Register block
  */
-wp.blocks.registerBlockType(
+registerBlockType(
 	'themecoder-block/image-card',
 	{
-		title: wp.i18n.__( 'Image Card', 'themecoder-block' ),
+		title: __( 'Image Card', 'themecoder-block' ),
 
 		icon: 'images-alt2',
 
