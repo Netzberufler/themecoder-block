@@ -3,6 +3,7 @@
  */
 const { registerBlockType } = wp.blocks;
 const { __ } = wp.i18n;
+const { RichText } = wp.editor;
 
 /**
  * Internal dependencies
@@ -33,7 +34,20 @@ registerBlockType(
 		},
 
 		edit( props ) {
-			const { className } = props;
+			const {
+				attributes,
+				className,
+				setAttributes,
+			} = props;
+
+			const {
+				title,
+				description,
+			} = attributes;
+
+			const changeTitle = function( newTitle ) {
+				setAttributes( { title: newTitle } );
+			}
 
 			return (
 				<div className={ className }>
@@ -45,8 +59,23 @@ registerBlockType(
 
 						<div className="tc-card">
 
-							<h2>Titel des Blocks</h2>
-							<p>Beschreibung des Blocks.</p>
+							<RichText
+								tagName="h2"
+								value={ title }
+								className="tc-title"
+								onChange={ changeTitle }
+								placeholder={ __( 'Add a title…', 'gt-blocks' ) }
+								keepPlaceholderOnFocus
+							/>
+
+							<RichText
+								tagName="p"
+								value={ description }
+								className="tc-description"
+								onChange={ ( value ) => setAttributes( { description: value } ) }
+								placeholder={ __( 'Write a description…', 'gt-blocks' ) }
+								keepPlaceholderOnFocus
+							/>
 
 						</div>
 
