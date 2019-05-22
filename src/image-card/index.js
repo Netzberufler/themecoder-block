@@ -84,7 +84,12 @@ registerBlockType(
 			);
 		},
 
-		save() {
+		save( { attributes } ) {
+			const {
+				title,
+				description,
+			} = attributes;
+
 			return (
 				<div>
 					<div className="tc-columns">
@@ -95,8 +100,17 @@ registerBlockType(
 
 						<div className="tc-card">
 
-							<h2>Titel des Blocks</h2>
-							<p>Beschreibung des Blocks.</p>
+							<RichText.Content
+								tagName="h2"
+								className="tc-title"
+								value={ title }
+							/>
+
+							<RichText.Content
+								tagName="p"
+								className="tc-description"
+								value={ description }
+							/>
 
 						</div>
 
