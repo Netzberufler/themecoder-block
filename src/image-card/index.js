@@ -47,14 +47,6 @@ registerBlockType(
 				description,
 			} = attributes;
 
-			function changeTitle( newTitle ) {
-				setAttributes( { title: newTitle } );
-			}
-
-			function changeDescription( newDescription ) {
-				setAttributes( { description: newDescription } );
-			}
-
 			return (
 				<div className={ className }>
 					<div className="tc-columns">
@@ -69,7 +61,7 @@ registerBlockType(
 								tagName="h2"
 								value={ title }
 								className="tc-title"
-								onChange={ changeTitle }
+								onChange={ ( value ) => setAttributes( { title: value } ) }
 								placeholder={ __( 'Add a title…', 'gt-blocks' ) }
 								keepPlaceholderOnFocus
 							/>
@@ -78,7 +70,7 @@ registerBlockType(
 								tagName="p"
 								value={ description }
 								className="tc-description"
-								onChange={ changeDescription }
+								onChange={ ( value ) => setAttributes( { description: value } ) }
 								placeholder={ __( 'Write a description…', 'gt-blocks' ) }
 								keepPlaceholderOnFocus
 							/>
