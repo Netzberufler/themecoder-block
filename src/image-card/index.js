@@ -24,10 +24,12 @@ registerBlockType(
 
 		attributes: {
 			title: {
+				type: 'string',
 				source: 'html',
 				selector: '.tc-title',
 			},
 			description: {
+				type: 'string',
 				source: 'html',
 				selector: '.tc-description',
 			},
@@ -45,8 +47,12 @@ registerBlockType(
 				description,
 			} = attributes;
 
-			const changeTitle = function( newTitle ) {
+			function changeTitle( newTitle ) {
 				setAttributes( { title: newTitle } );
+			}
+
+			function changeDescription( newDescription ) {
+				setAttributes( { description: newDescription } );
 			}
 
 			return (
@@ -72,7 +78,7 @@ registerBlockType(
 								tagName="p"
 								value={ description }
 								className="tc-description"
-								onChange={ ( value ) => setAttributes( { description: value } ) }
+								onChange={ changeDescription }
 								placeholder={ __( 'Write a description…', 'gt-blocks' ) }
 								keepPlaceholderOnFocus
 							/>
