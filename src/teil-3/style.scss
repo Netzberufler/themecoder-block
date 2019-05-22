@@ -1,0 +1,26 @@
+.wp-block-themecoder-block-image-card-teil-3 {
+	margin-bottom: 1.5em;
+	box-shadow: 0 0 10px #ccc;
+
+	.tc-columns {
+		display: flex;
+
+		.tc-image {
+			width: 50%;
+			background: #eee;
+		}
+
+		.tc-card {
+			width: 50%;
+			padding: 4em 2em;
+
+			h2 {
+				margin-top: 0;
+			}
+
+			p {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
