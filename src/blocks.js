@@ -13,7 +13,7 @@
 import './image-card/index.js';
 
 // Past Steps.
-import './teil-3/index.js';
+//import './teil-3/index.js';
 //import './teil-4/index.js';
 //import './teil-5/index.js';
 //import './teil-6/index.js';
