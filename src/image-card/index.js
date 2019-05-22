@@ -21,6 +21,17 @@ registerBlockType(
 
 		category: 'layout',
 
+		attributes: {
+			title: {
+				source: 'html',
+				selector: '.tc-title',
+			},
+			description: {
+				source: 'html',
+				selector: '.tc-description',
+			},
+		},
+
 		edit( props ) {
 			const { className } = props;
 
